@@ -7,47 +7,30 @@
 import React, { Component } from 'react';
 import {
   AppRegistry,
-  StyleSheet,
+  Image,
   Text,
-  View
+  View,
 } from 'react-native';
 
 export default class ReactNativeDemo extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
+      //在render函数中引用this.props
+      <View style={{alignItems: 'center'}}>
+        <Greeting name='jack' />
+        <Greeting name='roser' />
       </View>
     );
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
+//通过在不同的场景使用不同的属性定制，可以尽量提高自定义组件的复用范畴
+class Greeting extends Component {
+  render() {
+    return (
+      <Text>Hello {this.props.name}!</Text> 
+    );
+  }
+}
 
 AppRegistry.registerComponent('ReactNativeDemo', () => ReactNativeDemo);
