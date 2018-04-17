@@ -389,6 +389,7 @@ class SelectionExample extends Component {
     this.state = {
       selection: {start: 0, end: 0},
       value: props.value,
+      length: 10,
     };
   }
 
@@ -420,7 +421,9 @@ class SelectionExample extends Component {
   }
 
   render() {
-    var length = this.state.value.length;
+    //会报错，只能用固定值替代
+    // var length = this.state.value.length;
+    var length = this.state.length;
 
     return (
       <View>
@@ -445,10 +448,10 @@ class SelectionExample extends Component {
              Place at End ({length}, {length})
           </Text>
           <Text onPress={this.placeAtRandom.bind(this)}>
-           Place at Random
+            Place at Random
           </Text>
          <Text onPress={this.select.bind(this, 0, length)}>
-           Select All
+            Select All
           </Text>
           <Text onPress={this.selectRandom.bind(this)}>
             Select Random
@@ -459,7 +462,7 @@ class SelectionExample extends Component {
   }
 }
 
-//
+//完整例子
 exports.displayName = (undefined: ?string);
 exports.title = '<TextInput>';
 exports.description = 'Single and multi-line text inputs';
@@ -477,7 +480,7 @@ exports.examples = [
     } 
   },
   {
-    title: 'Live Re-write (<sp> -> '_') + maxLength',
+    title: "Live Re-write (<sp> -> '_') + maxLength",
     render: function() {
       return <RewriteExample />;
     }
@@ -714,7 +717,7 @@ exports.examples = [
     }
   },
   {
-    title: 'Clear and select'
+    title: 'Clear and select',
     render: function() {
       return (
         <View>
@@ -791,7 +794,7 @@ exports.examples = [
             multiline={true}
             style={styles.multiline}
           />
-          </TextInput 
+          <TextInput 
             defaultValue='uneditable multiline text input with phone number detection: 888888888.'
             editable={false}
             multiline={true}
@@ -805,7 +808,7 @@ exports.examples = [
             returnKeyType='go'
             style={styles.multiline}>
             <View style={styles.multilineChild} />
-          <TextInput />
+          </TextInput>
         </View>
       );
     }
