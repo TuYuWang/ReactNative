@@ -20,14 +20,14 @@ import {
 //ListView会惰性渲染子元素，只在它们将要出现在屏幕中时开始渲染。性能上好
 export default class ReactNativeDemo extends Component {
   render() {
+    var example = exports.examples[0];
     return (
-      <View>
-        
-      </View>
+      
     );
   }
 }
 
+//不会使用以下
 exports.displayName = (undefined: ?string);
 exports.title = '<ScrollView>';
 exports.description = 'Component that enables scrolling throungh child components';
